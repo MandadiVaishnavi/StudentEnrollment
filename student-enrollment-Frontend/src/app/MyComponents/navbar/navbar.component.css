@@ -1,0 +1,10 @@
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #1976D2; /* Primary color */
+}
+
+button {
+  margin: 0 10px;
+}

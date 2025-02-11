@@ -1,0 +1,34 @@
+<form [formGroup]="editStudentForm" (ngSubmit)="onSubmit()">
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput formControlName="FirstName" [disabled]="!isEditable">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Last Name</mat-label>
+    <input matInput formControlName="LastName" [disabled]="!isEditable">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Date of Birth</mat-label>
+    <input matInput [matDatepicker]="dobPicker" formControlName="DateOfBirth" [disabled]="!isEditable">
+    <mat-datepicker-toggle matIconSuffix [for]="dobPicker"></mat-datepicker-toggle>
+    <mat-datepicker #dobPicker></mat-datepicker>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Gender</mat-label>
+    <input matInput formControlName="Gender" [disabled]="!isEditable">
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="Email" [disabled]="!isEditable">
+  </mat-form-field>
+
+  <mat-checkbox (change)="toggleEditMode($event.checked)">Enable Editing</mat-checkbox>
+
+  <button type="submit" mat-raised-button color="primary" [disabled]="!isEditable || editStudentForm.invalid">
+    Submit
+  </button>
+</form>

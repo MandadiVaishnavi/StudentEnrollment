@@ -1,0 +1,18 @@
+<h2>Student Details</h2>
+
+<!-- Ensure you're checking if the student object is defined before displaying the details -->
+<div *ngIf="student">
+  <p><strong>First Name:</strong> {{ student.firstName }}</p>
+  <p><strong>Last Name:</strong> {{ student.lastName }}</p>
+  <p><strong>Course:</strong> {{ student.course }}</p>
+  <p><strong>Year:</strong> {{ student.year }}</p>
+  <p><strong>Email:</strong> {{ student.email }}</p>
+  <p><strong>Mobile Phone:</strong> {{ student.mobilePhone }}</p>
+  <p><strong>Nationality:</strong> {{ student.nationality }}</p>
+  <img *ngIf="student.profilePictureUrl" [src]="student.profilePictureUrl" alt="Profile Picture" />
+</div>
+
+<!-- Optionally, show a loading spinner while the data is being fetched -->
+<div *ngIf="!student">
+  <p>Loading student details...</p>
+</div>

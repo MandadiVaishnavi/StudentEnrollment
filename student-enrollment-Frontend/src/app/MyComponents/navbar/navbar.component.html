@@ -1,0 +1,5 @@
+<mat-toolbar color="primary" *ngIf="showNavbar">
+  <!-- Only show if showNavbar is true -->
+  <button mat-button (click)="navigateTo('/enroll')">Start Enrollment</button>
+  <button mat-button (click)="navigateTo('/students')">View Students</button>
+</mat-toolbar>

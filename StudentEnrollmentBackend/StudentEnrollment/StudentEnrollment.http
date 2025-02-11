@@ -1,0 +1,54 @@
+@StudentEnrollment_HostAddress = https://localhost:7189
+
+
+
+GET {{StudentEnrollment_HostAddress}}/api/student
+
+###
+
+GET {{StudentEnrollment_HostAddress}}/api/student
+
+###
+
+GET {{StudentEnrollment_HostAddress}}/api/student
+
+###
+
+GET {{StudentEnrollment_HostAddress}}/api/student
+
+###
+
+POST {{StudentEnrollment_HostAddress}}/api/student
+Content-Type: application/json
+
+{
+  "FirstName": "Sravya",
+  "LastName": "Ravulakolla",
+  "DateOfBirth": "2003-12-24T00:00:00",
+  "Gender": "Female",
+  "Nationality": "Indian",
+  "MobilePhone": "+912345678901",
+  "Email": "sravyaravulakolla@gmail.com",
+  "Address": "Mallapur",
+  "Course": "Computer Science",
+  "FatherName": "Venkatesh",
+  "MotherName": "Padma Sree",
+  "FatherPhone": "+919345678903",
+  "MotherPhone": "+919876543212",
+  "ProfilePictureUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fprofile-picture&psig=AOvVaw0TkisKJBo5objXCnZp6cG9&ust=1739263690412000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMj7pcTcuIsDFQAAAAAdAAAAABAE"
+}
+
+
+###
+
+GET {{StudentEnrollment_HostAddress}}/api/student
+
+###
+
+GET {{StudentEnrollment_HostAddress}}/api/student
+
+###
+
+GET {{StudentEnrollment_HostAddress}}/api/student
+
+###

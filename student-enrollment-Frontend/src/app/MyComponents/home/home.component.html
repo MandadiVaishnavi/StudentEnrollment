@@ -1,0 +1,38 @@
+<!-- Home Page Template -->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Student Enrollment</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="main-container">
+  <!-- Welcome Section -->
+  <mat-card class="welcome-card">
+    <mat-card-header>
+      <mat-card-title>Welcome to the Student Enrollment Portal</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>Enroll students for various courses with ease. Start by filling the form below!</p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button color="accent" routerLink="/enroll">Start Enrollment</button>
+      <button mat-button routerLink="/students">View Students</button>
+    </mat-card-actions>
+  </mat-card>
+
+  <!-- About Section -->
+  <mat-card class="about-card">
+    <mat-card-header>
+      <mat-card-title>About This App</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p>This app helps you manage student enrollments, view student details, and track course progress.</p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<footer class="footer">
+  <mat-toolbar color="primary">
+    <span>© 2025 Student Enrollment System</span>
+  </mat-toolbar>
+</footer>
