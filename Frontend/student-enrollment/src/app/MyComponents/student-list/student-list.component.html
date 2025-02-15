@@ -1,0 +1,73 @@
+
+
+<table mat-table [dataSource]="students" class="mat-elevation-z8">
+
+  <!-- First Name Column -->
+  <ng-container matColumnDef="firstName">
+    <th mat-header-cell *matHeaderCellDef> First Name </th>
+    <td mat-cell *matCellDef="let student">
+      <span *ngIf="editingFieldId !== student.studentId + '-firstName'"
+            (dblclick)="startEditing(student.studentId, 'firstName')">
+        {{ student.firstName }}
+      </span>
+      <input *ngIf="editingFieldId === student.studentId + '-firstName'"
+             [(ngModel)]="student.firstName"
+             (blur)="saveField(student, 'firstName')">
+    </td>
+  </ng-container>
+
+  <!-- Last Name Column -->
+  <ng-container matColumnDef="lastName">
+    <th mat-header-cell *matHeaderCellDef> Last Name </th>
+    <td mat-cell *matCellDef="let student">
+      <span *ngIf="editingFieldId !== student.studentId + '-lastName'"
+            (dblclick)="startEditing(student.studentId, 'lastName')">
+        {{ student.lastName }}
+      </span>
+      <input *ngIf="editingFieldId === student.studentId + '-lastName'"
+             [(ngModel)]="student.lastName"
+             (blur)="saveField(student, 'lastName')">
+    </td>
+  </ng-container>
+
+  <!-- Course Column -->
+  <ng-container matColumnDef="course">
+    <th mat-header-cell *matHeaderCellDef> Course </th>
+    <td mat-cell *matCellDef="let student">
+      <span *ngIf="editingFieldId !== student.studentId + '-course'"
+            (dblclick)="startEditing(student.studentId, 'course')">
+        {{ student.course }}
+      </span>
+      <input *ngIf="editingFieldId === student.studentId + '-course'"
+             [(ngModel)]="student.course"
+             (blur)="saveField(student, 'course')">
+    </td>
+  </ng-container>
+
+  <!-- Year Column -->
+  <ng-container matColumnDef="year">
+    <th mat-header-cell *matHeaderCellDef> Year </th>
+    <td mat-cell *matCellDef="let student">
+      <span *ngIf="editingFieldId !== student.studentId + '-year'"
+            (dblclick)="startEditing(student.studentId, 'year')">
+        {{ student.year }}
+      </span>
+      <input *ngIf="editingFieldId === student.studentId + '-year'"
+             [(ngModel)]="student.year"
+             (blur)="saveField(student, 'year')">
+    </td>
+  </ng-container>
+
+  <!-- Actions Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Actions </th>
+    <td mat-cell *matCellDef="let student">
+      <button mat-button (click)="viewStudent(student.studentId)">View</button>
+      <button mat-button (click)="editStudent(student.studentId)">Edit</button>
+      <button mat-button (click)="deleteStudent(student.studentId)">Delete</button>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['firstName', 'lastName', 'course', 'year', 'actions']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['firstName', 'lastName', 'course', 'year', 'actions'];"></tr>
+</table>
