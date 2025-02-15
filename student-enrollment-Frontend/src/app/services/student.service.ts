@@ -7,8 +7,9 @@ import { Student } from '../Model/student';
   providedIn: 'root' // This ensures the service is available globally
 })
 export class StudentService {
-  private apiUrl = 'https://localhost:7189/api/student'; // Update this based on your backend URL
-
+  
+  //private apiUrl = 'https://localhost:7189/api/student'; // Update this based on your backend URL
+  private apiUrl = 'https://localhost:7115/api/students';
   constructor(private http: HttpClient) { }
 
   getStudents(): Observable<Student[]> {

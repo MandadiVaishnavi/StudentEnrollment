@@ -1,0 +1,35 @@
+.student-card {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 16px;
+}
+
+.student-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.student-info {
+  flex: 1;
+  padding-right: 16px;
+  margin-top:10px;
+}
+
+.profile-picture {
+  flex-shrink: 0;
+  max-width: 150px;
+}
+.student-info p {
+  margin: 0;
+  padding: 0;
+}
+
+  .profile-picture img {
+    width: 100%;
+    height: auto;
+  }
+h2{
+    padding:10px;
+    text-align:center;
+    
+}

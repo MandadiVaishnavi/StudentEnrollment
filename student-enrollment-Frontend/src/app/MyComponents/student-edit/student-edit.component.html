@@ -1,32 +1,370 @@
-<form [formGroup]="editStudentForm" (ngSubmit)="onSubmit()">
+<h2 > Update Student Details</h2>
+<form [formGroup]="editStudentForm" (ngSubmit)="onSubmit()" class="form-container">
+  <!-- First Name -->
+
   <mat-form-field appearance="fill">
     <mat-label>First Name</mat-label>
-    <input matInput formControlName="FirstName" [disabled]="!isEditable">
+    <input matInput formControlName="FirstName">
   </mat-form-field>
+  <!-- Last Name -->
 
   <mat-form-field appearance="fill">
     <mat-label>Last Name</mat-label>
-    <input matInput formControlName="LastName" [disabled]="!isEditable">
+    <input matInput formControlName="LastName">
   </mat-form-field>
+  <!-- Date of Birth -->
 
   <mat-form-field appearance="fill">
     <mat-label>Date of Birth</mat-label>
-    <input matInput [matDatepicker]="dobPicker" formControlName="DateOfBirth" [disabled]="!isEditable">
+    <input matInput [matDatepicker]="dobPicker" formControlName="DateOfBirth">
     <mat-datepicker-toggle matIconSuffix [for]="dobPicker"></mat-datepicker-toggle>
     <mat-datepicker #dobPicker></mat-datepicker>
   </mat-form-field>
+  <!-- Gender -->
 
   <mat-form-field appearance="fill">
     <mat-label>Gender</mat-label>
-    <input matInput formControlName="Gender" [disabled]="!isEditable">
+    <mat-select formControlName="Gender" required>
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
+      <mat-option value="Other">Other</mat-option>
+    </mat-select>
+    <div *ngIf="editStudentForm.get('Gender')?.invalid && editStudentForm.get('Gender')?.touched">
+      <div *ngIf="editStudentForm.get('Gender')?.hasError('required')">
+        <p class="error-message">Gender is required.</p>
+      </div>
+    </div>
   </mat-form-field>
+  <!-- Nationality -->
 
   <mat-form-field appearance="fill">
-    <mat-label>Email</mat-label>
-    <input matInput type="email" formControlName="Email" [disabled]="!isEditable">
+    <mat-label>Nationality</mat-label>
+    <mat-select formControlName="Nationality" required>
+      <mat-option value="afghan">Afghan</mat-option>
+      <mat-option value="albanian">Albanian</mat-option>
+      <mat-option value="algerian">Algerian</mat-option>
+      <mat-option value="american">American</mat-option>
+      <mat-option value="andorran">Andorran</mat-option>
+      <mat-option value="angolan">Angolan</mat-option>
+      <mat-option value="antiguans">Antiguans</mat-option>
+      <mat-option value="argentinean">Argentinean</mat-option>
+      <mat-option value="armenian">Armenian</mat-option>
+      <mat-option value="australian">Australian</mat-option>
+      <mat-option value="austrian">Austrian</mat-option>
+      <mat-option value="azerbaijani">Azerbaijani</mat-option>
+      <mat-option value="bahamian">Bahamian</mat-option>
+      <mat-option value="bahraini">Bahraini</mat-option>
+      <mat-option value="bangladeshi">Bangladeshi</mat-option>
+      <mat-option value="barbadian">Barbadian</mat-option>
+      <mat-option value="barbudans">Barbudans</mat-option>
+      <mat-option value="batswana">Batswana</mat-option>
+      <mat-option value="belarusian">Belarusian</mat-option>
+      <mat-option value="belgian">Belgian</mat-option>
+      <mat-option value="belizean">Belizean</mat-option>
+      <mat-option value="beninese">Beninese</mat-option>
+      <mat-option value="bhutanese">Bhutanese</mat-option>
+      <mat-option value="bolivian">Bolivian</mat-option>
+      <mat-option value="bosnian">Bosnian</mat-option>
+      <mat-option value="brazilian">Brazilian</mat-option>
+      <mat-option value="british">British</mat-option>
+      <mat-option value="bruneian">Bruneian</mat-option>
+      <mat-option value="bulgarian">Bulgarian</mat-option>
+      <mat-option value="burkinabe">Burkinabe</mat-option>
+      <mat-option value="burmese">Burmese</mat-option>
+      <mat-option value="burundian">Burundian</mat-option>
+      <mat-option value="cambodian">Cambodian</mat-option>
+      <mat-option value="cameroonian">Cameroonian</mat-option>
+      <mat-option value="canadian">Canadian</mat-option>
+      <mat-option value="cape verdean">Cape Verdean</mat-option>
+      <mat-option value="central african">Central African</mat-option>
+      <mat-option value="chadian">Chadian</mat-option>
+      <mat-option value="chilean">Chilean</mat-option>
+      <mat-option value="chinese">Chinese</mat-option>
+      <mat-option value="colombian">Colombian</mat-option>
+      <mat-option value="comoran">Comoran</mat-option>
+      <mat-option value="congolese">Congolese</mat-option>
+      <mat-option value="costa rican">Costa Rican</mat-option>
+      <mat-option value="croatian">Croatian</mat-option>
+      <mat-option value="cuban">Cuban</mat-option>
+      <mat-option value="cypriot">Cypriot</mat-option>
+      <mat-option value="czech">Czech</mat-option>
+      <mat-option value="danish">Danish</mat-option>
+      <mat-option value="djibouti">Djibouti</mat-option>
+      <mat-option value="dominican">Dominican</mat-option>
+      <mat-option value="dutch">Dutch</mat-option>
+      <mat-option value="east timorese">East Timorese</mat-option>
+      <mat-option value="ecuadorean">Ecuadorean</mat-option>
+      <mat-option value="egyptian">Egyptian</mat-option>
+      <mat-option value="emirian">Emirian</mat-option>
+      <mat-option value="equatorial guinean">Equatorial Guinean</mat-option>
+      <mat-option value="eritrean">Eritrean</mat-option>
+      <mat-option value="estonian">Estonian</mat-option>
+      <mat-option value="ethiopian">Ethiopian</mat-option>
+      <mat-option value="fijian">Fijian</mat-option>
+      <mat-option value="filipino">Filipino</mat-option>
+      <mat-option value="finnish">Finnish</mat-option>
+      <mat-option value="french">French</mat-option>
+      <mat-option value="gabonese">Gabonese</mat-option>
+      <mat-option value="gambian">Gambian</mat-option>
+      <mat-option value="georgian">Georgian</mat-option>
+      <mat-option value="german">German</mat-option>
+      <mat-option value="ghanaian">Ghanaian</mat-option>
+      <mat-option value="greek">Greek</mat-option>
+      <mat-option value="grenadian">Grenadian</mat-option>
+      <mat-option value="guatemalan">Guatemalan</mat-option>
+      <mat-option value="guinea-bissauan">Guinea-Bissauan</mat-option>
+      <mat-option value="guinean">Guinean</mat-option>
+      <mat-option value="guyanese">Guyanese</mat-option>
+      <mat-option value="haitian">Haitian</mat-option>
+      <mat-option value="herzegovinian">Herzegovinian</mat-option>
+      <mat-option value="honduran">Honduran</mat-option>
+      <mat-option value="hungarian">Hungarian</mat-option>
+      <mat-option value="icelander">Icelander</mat-option>
+      <mat-option value="indian">Indian</mat-option>
+      <mat-option value="indonesian">Indonesian</mat-option>
+      <mat-option value="iranian">Iranian</mat-option>
+      <mat-option value="iraqi">Iraqi</mat-option>
+      <mat-option value="irish">Irish</mat-option>
+      <mat-option value="israeli">Israeli</mat-option>
+      <mat-option value="italian">Italian</mat-option>
+      <mat-option value="ivorian">Ivorian</mat-option>
+      <mat-option value="jamaican">Jamaican</mat-option>
+      <mat-option value="japanese">Japanese</mat-option>
+      <mat-option value="jordanian">Jordanian</mat-option>
+      <mat-option value="kazakhstani">Kazakhstani</mat-option>
+      <mat-option value="kenyan">Kenyan</mat-option>
+      <mat-option value="kittian and nevisian">Kittian and Nevisian</mat-option>
+      <mat-option value="kuwaiti">Kuwaiti</mat-option>
+      <mat-option value="kyrgyz">Kyrgyz</mat-option>
+      <mat-option value="laotian">Laotian</mat-option>
+      <mat-option value="latvian">Latvian</mat-option>
+      <mat-option value="lebanese">Lebanese</mat-option>
+      <mat-option value="liberian">Liberian</mat-option>
+      <mat-option value="libyan">Libyan</mat-option>
+      <mat-option value="liechtensteiner">Liechtensteiner</mat-option>
+      <mat-option value="lithuanian">Lithuanian</mat-option>
+      <mat-option value="luxembourger">Luxembourger</mat-option>
+      <mat-option value="macedonian">Macedonian</mat-option>
+      <mat-option value="malagasy">Malagasy</mat-option>
+      <mat-option value="malawian">Malawian</mat-option>
+      <mat-option value="malaysian">Malaysian</mat-option>
+      <mat-option value="maldivan">Maldivan</mat-option>
+      <mat-option value="malian">Malian</mat-option>
+      <mat-option value="maltese">Maltese</mat-option>
+      <mat-option value="marshallese">Marshallese</mat-option>
+      <mat-option value="mauritanian">Mauritanian</mat-option>
+      <mat-option value="mauritian">Mauritian</mat-option>
+      <mat-option value="mexican">Mexican</mat-option>
+      <mat-option value="micronesian">Micronesian</mat-option>
+      <mat-option value="moldovan">Moldovan</mat-option>
+      <mat-option value="monacan">Monacan</mat-option>
+      <mat-option value="mongolian">Mongolian</mat-option>
+      <mat-option value="moroccan">Moroccan</mat-option>
+      <mat-option value="mosotho">Mosotho</mat-option>
+      <mat-option value="motswana">Motswana</mat-option>
+      <mat-option value="mozambican">Mozambican</mat-option>
+      <mat-option value="namibian">Namibian</mat-option>
+      <mat-option value="nauruan">Nauruan</mat-option>
+      <mat-option value="nepalese">Nepalese</mat-option>
+      <mat-option value="new zealander">New Zealander</mat-option>
+      <mat-option value="ni-vanuatu">Ni-Vanuatu</mat-option>
+      <mat-option value="nicaraguan">Nicaraguan</mat-option>
+      <mat-option value="nigerien">Nigerien</mat-option>
+      <mat-option value="north korean">North Korean</mat-option>
+      <mat-option value="northern irish">Northern Irish</mat-option>
+      <mat-option value="norwegian">Norwegian</mat-option>
+      <mat-option value="omani">Omani</mat-option>
+      <mat-option value="pakistani">Pakistani</mat-option>
+      <mat-option value="palauan">Palauan</mat-option>
+      <mat-option value="panamanian">Panamanian</mat-option>
+      <mat-option value="papua new guinean">Papua New Guinean</mat-option>
+      <mat-option value="paraguayan">Paraguayan</mat-option>
+      <mat-option value="peruvian">Peruvian</mat-option>
+      <mat-option value="portuguese">Portuguese</mat-option>
+      <mat-option value="qatari">Qatari</mat-option>
+      <mat-option value="romanian">Romanian</mat-option>
+      <mat-option value="russian">Russian</mat-option>
+      <mat-option value="rwandan">Rwandan</mat-option>
+      <mat-option value="saint lucian">Saint Lucian</mat-option>
+      <mat-option value="salvadoran">Salvadoran</mat-option>
+      <mat-option value="samoan">Samoan</mat-option>
+      <mat-option value="san marinese">San Marinese</mat-option>
+      <mat-option value="sao tomean">Sao Tomean</mat-option>
+      <mat-option value="saudi">Saudi</mat-option>
+      <mat-option value="scottish">Scottish</mat-option>
+      <mat-option value="senegalese">Senegalese</mat-option>
+      <mat-option value="serbian">Serbian</mat-option>
+      <mat-option value="seychellois">Seychellois</mat-option>
+      <mat-option value="sierra leonean">Sierra Leonean</mat-option>
+      <mat-option value="singaporean">Singaporean</mat-option>
+      <mat-option value="slovakian">Slovakian</mat-option>
+      <mat-option value="slovenian">Slovenian</mat-option>
+      <mat-option value="solomon islander">Solomon Islander</mat-option>
+      <mat-option value="somali">Somali</mat-option>
+      <mat-option value="south african">South African</mat-option>
+      <mat-option value="south korean">South Korean</mat-option>
+      <mat-option value="spanish">Spanish</mat-option>
+      <mat-option value="sri lankan">Sri Lankan</mat-option>
+      <mat-option value="st. helenian">St. Helenian</mat-option>
+      <mat-option value="st. lucian">St. Lucian</mat-option>
+      <mat-option value="st. pierre and miquelonian">St. Pierre and Miquelon</mat-option>
+      <mat-option value="sudanese">Sudanese</mat-option>
+      <mat-option value="surinamer">Surinamer</mat-option>
+      <mat-option value="swazi">Swazi</mat-option>
+      <mat-option value="swedish">Swedish</mat-option>
+      <mat-option value="swiss">Swiss</mat-option>
+      <mat-option value="syrian">Syrian</mat-option>
+      <mat-option value="taiwanese">Taiwanese</mat-option>
+      <mat-option value="tajik">Tajik</mat-option>
+      <mat-option value="tanzanian">Tanzanian</mat-option>
+      <mat-option value="thai">Thai</mat-option>
+      <mat-option value="togolese">Togolese</mat-option>
+      <mat-option value="tongan">Tongan</mat-option>
+      <mat-option value="trinidadian or tobagonian">Trinidadian or Tobagonian</mat-option>
+      <mat-option value="tunisian">Tunisian</mat-option>
+      <mat-option value="turkish">Turkish</mat-option>
+      <mat-option value="tuvaluan">Tuvaluan</mat-option>
+      <mat-option value="ugandan">Ugandan</mat-option>
+      <mat-option value="ukrainian">Ukrainian</mat-option>
+      <mat-option value="uruguayan">Uruguayan</mat-option>
+      <mat-option value="uzbekistani">Uzbekistani</mat-option>
+      <mat-option value="vanuatuan">Vanuatuan</mat-option>
+      <mat-option value="venezuelan">Venezuelan</mat-option>
+      <mat-option value="vietnamese">Vietnamese</mat-option>
+      <mat-option value="yemenite">Yemenite</mat-option>
+      <mat-option value="zambian">Zambian</mat-option>
+      <mat-option value="zimbabwean">Zimbabwean</mat-option>
+    </mat-select>
   </mat-form-field>
 
-  <mat-checkbox (change)="toggleEditMode($event.checked)">Enable Editing</mat-checkbox>
+  <!-- Mobile Phone -->
+
+  <mat-form-field appearance="fill">
+    <mat-label>Mobile Phone</mat-label>
+    <input matInput formControlName="MobilePhone" required />
+    <div *ngIf="editStudentForm.get('MobilePhone')?.invalid && editStudentForm.get('MobilePhone')?.touched">
+      <div *ngIf="editStudentForm.get('MobilePhone')?.hasError('required')">
+        <p class="error-message">Mobile phone is required.</p>
+      </div>
+      <div *ngIf="editStudentForm.get('MobilePhone')?.hasError('pattern')">
+        <p class="error-message">Invalid phone number.</p>
+      </div>
+    </div>
+  </mat-form-field>
+  <!-- Email -->
+  <mat-form-field appearance="fill">
+    <mat-label>Email</mat-label>
+    <input matInput type="email" formControlName="Email">
+  </mat-form-field>
+  <!-- Address -->
+
+  <mat-form-field appearance="fill">
+    <mat-label>Address</mat-label>
+    <input matInput formControlName="Address" required />
+    <div *ngIf="editStudentForm.get('Address')?.invalid && editStudentForm.get('Address')?.touched">
+      <div *ngIf="editStudentForm.get('Address')?.hasError('required')">
+        <p class="error-message">Address is required.</p>
+      </div>
+    </div>
+  </mat-form-field>
+  <!-- Course -->
+
+  <mat-form-field appearance="fill">
+    <mat-label>Course</mat-label>
+    <mat-select formControlName="Course" required>
+      <mat-option value="accounting">Accounting</mat-option>
+      <mat-option value="architecture">Architecture</mat-option>
+      <mat-option value="artificial-intelligence">Artificial Intelligence</mat-option>
+      <mat-option value="biology">Biology</mat-option>
+      <mat-option value="business-administration">Business Administration</mat-option>
+      <mat-option value="chemical-engineering">Chemical Engineering</mat-option>
+      <mat-option value="civil-engineering">Civil Engineering</mat-option>
+      <mat-option value="computer-science">Computer Science</mat-option>
+      <mat-option value="data-science">Data Science</mat-option>
+      <mat-option value="economics">Economics</mat-option>
+      <mat-option value="electrical-engineering">Electrical Engineering</mat-option>
+      <mat-option value="english-literature">English Literature</mat-option>
+      <mat-option value="environmental-science">Environmental Science</mat-option>
+      <mat-option value="finance">Finance</mat-option>
+      <mat-option value="graphic-design">Graphic Design</mat-option>
+      <mat-option value="history">History</mat-option>
+      <mat-option value="information-technology">Information Technology</mat-option>
+      <mat-option value="law">Law</mat-option>
+      <mat-option value="literature">Literature</mat-option>
+      <mat-option value="mathematics">Mathematics</mat-option>
+      <mat-option value="mechanical-engineering">Mechanical Engineering</mat-option>
+      <mat-option value="medicine">Medicine</mat-option>
+      <mat-option value="nursing">Nursing</mat-option>
+      <mat-option value="philosophy">Philosophy</mat-option>
+      <mat-option value="physics">Physics</mat-option>
+      <mat-option value="psychology">Psychology</mat-option>
+      <mat-option value="public-administration">Public Administration</mat-option>
+      <mat-option value="sociology">Sociology</mat-option>
+      <mat-option value="theology">Theology</mat-option>
+      <mat-option value="visual-arts">Visual Arts</mat-option>
+      <mat-option value="web-development">Web Development</mat-option>
+      <mat-option value="zoology">Zoology</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Father's Name -->
+  <mat-form-field appearance="fill">
+    <mat-label>Father's Name</mat-label>
+    <input matInput formControlName="FatherName" required />
+    <div *ngIf="editStudentForm.get('FatherName')?.invalid && editStudentForm.get('FatherName')?.touched">
+      <div *ngIf="editStudentForm.get('FatherName')?.hasError('required')">
+        <p class="error-message">Father's name is required.</p>
+      </div>
+    </div>
+  </mat-form-field>
+
+
+  <!-- Mother's Name -->
+
+  <mat-form-field appearance="fill">
+    <mat-label>Mother's Name</mat-label>
+    <input matInput formControlName="MotherName" required />
+    <div *ngIf="editStudentForm.get('MotherName')?.invalid && editStudentForm.get('MotherName')?.touched">
+      <div *ngIf="editStudentForm.get('MotherName')?.hasError('required')">
+        <p class="error-message">Mother's name is required.</p>
+      </div>
+    </div>
+  </mat-form-field>
+  <!-- Father's Phone -->
+
+  <mat-form-field appearance="fill">
+    <mat-label>Father's Phone</mat-label>
+    <input matInput formControlName="FatherPhone" required />
+    <div *ngIf="editStudentForm.get('FatherPhone')?.invalid && editStudentForm.get('FatherPhone')?.touched">
+      <div *ngIf="editStudentForm.get('FatherPhone')?.hasError('required')">
+        <p class="error-message">Father's phone is required.</p>
+      </div>
+      <div *ngIf="editStudentForm.get('FatherPhone')?.hasError('pattern')">
+        <p class="error-message">Invalid phone number.</p>
+      </div>
+    </div>
+  </mat-form-field>
+  <!-- Mother's Phone -->
+
+  <mat-form-field appearance="fill">
+    <mat-label>Mother's Phone</mat-label>
+    <input matInput formControlName="MotherPhone" required />
+    <div *ngIf="editStudentForm.get('MotherPhone')?.invalid && editStudentForm.get('MotherPhone')?.touched">
+      <div *ngIf="editStudentForm.get('MotherPhone')?.hasError('required')">
+        <p class="error-message">Mother's phone is required.</p>
+      </div>
+      <div *ngIf="editStudentForm.get('MotherPhone')?.hasError('pattern')">
+        <p class="error-message">Invalid phone number.</p>
+      </div>
+    </div>
+  </mat-form-field>
+  <!-- Profile Picture URL -->
+  <mat-form-field appearance="fill">
+    <mat-label>Profile Picture URL</mat-label>
+    <input matInput formControlName="ProfilePictureUrl" />
+  </mat-form-field>
+
+  <mat-checkbox (change)="toggleEditMode($event.checked)">Confirm Changes</mat-checkbox>
 
   <button type="submit" mat-raised-button color="primary" [disabled]="!isEditable || editStudentForm.invalid">
     Submit

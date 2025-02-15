@@ -5,12 +5,10 @@
     "\\src\\app",
     "\\src\\app\\Model",
     "\\src\\app\\MyComponents",
-    "\\src\\app\\MyComponents\\confirm-dialog",
     "\\src\\app\\MyComponents\\navbar",
-    "\\src\\app\\MyComponents\\student-details",
     "\\src\\app\\MyComponents\\student-edit",
     "\\src\\app\\services"
   ],
-  "SelectedNode": "\\src\\app\\MyComponents\\student-enrollment\\student-enrollment.component.ts",
+  "SelectedNode": "\\src\\app\\MyComponents\\student-edit\\student-edit.component.ts",
   "PreviewInSolutionExplorer": false
 }

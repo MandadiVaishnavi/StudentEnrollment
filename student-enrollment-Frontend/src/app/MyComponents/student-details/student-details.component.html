@@ -1,18 +1,41 @@
 <h2>Student Details</h2>
 
-<!-- Ensure you're checking if the student object is defined before displaying the details -->
-<div *ngIf="student">
-  <p><strong>First Name:</strong> {{ student.firstName }}</p>
-  <p><strong>Last Name:</strong> {{ student.lastName }}</p>
-  <p><strong>Course:</strong> {{ student.course }}</p>
-  <p><strong>Year:</strong> {{ student.year }}</p>
-  <p><strong>Email:</strong> {{ student.email }}</p>
-  <p><strong>Mobile Phone:</strong> {{ student.mobilePhone }}</p>
-  <p><strong>Nationality:</strong> {{ student.nationality }}</p>
-  <img *ngIf="student.profilePictureUrl" [src]="student.profilePictureUrl" alt="Profile Picture" />
-</div>
+<mat-card *ngIf="student" class="student-card">
+  <mat-card-header>
+    <mat-card-title>{{ student.firstName }} {{ student.lastName }}</mat-card-title>
+    <mat-card-subtitle>{{ student.course }} - Year {{ student.year }}</mat-card-subtitle>
+  </mat-card-header>
 
-<!-- Optionally, show a loading spinner while the data is being fetched -->
+  <mat-card-content>
+    <div class="student-details">
+      <div class="student-info">
+        <p><strong>Enrollment Date:</strong> {{ student.enrollmentDate | date: 'MM/dd/yyyy'}}</p>
+        <p><strong>Father's Name: </strong>{{ student.fatherName }}</p>
+        <p><strong>Mother's Name: </strong>{{ student.motherName }}</p>
+        <p><strong>Date of Birth: </strong> {{ student.dateOfBirth | date: 'MM/dd/yyyy' }}</p>
+        <p><strong>Email:</strong> {{ student.email }}</p>
+        <p><strong>Mobile Phone:</strong> {{ student.mobilePhone }}</p>
+        <p><strong>Nationality:</strong> {{ student.nationality }}</p>
+        <p><strong>Address: </strong> {{ student.address }}</p>
+        <p><strong>GPA: </strong> {{ student.gpa }}</p>
+       
+
+
+
+
+
+      </div>
+
+      <div class="profile-picture">
+        <img *ngIf="student.profilePictureUrl" [src]="student.profilePictureUrl" alt="Profile Picture" />
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+<!-- Loading Spinner While Data is Being Fetched -->
 <div *ngIf="!student">
+  <mat-spinner></mat-spinner>
   <p>Loading student details...</p>
 </div>

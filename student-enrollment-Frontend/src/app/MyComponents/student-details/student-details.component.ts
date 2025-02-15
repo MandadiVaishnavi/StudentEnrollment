@@ -2,13 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { StudentService } from '../../services/student.service';
 import { Student } from '../../Model/student';
-import { CommonModule } from '@angular/common';
-
+import { CommonModule, DatePipe } from '@angular/common';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule, MatSpinner } from '@angular/material/progress-spinner'
 @Component({
   selector: 'app-student-detail',
   standalone: true, // Make sure you declare it as standalone
-  imports: [CommonModule],
+  imports: [CommonModule,
+    MatCardModule,
+    MatGridListModule,
+    MatSpinner
+            ],
   templateUrl: './student-details.component.html',
+  providers: [DatePipe],
   styleUrls: ['./student-details.component.css'],
 })
 export class StudentDetailsComponent implements OnInit {
@@ -16,7 +23,8 @@ export class StudentDetailsComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,  // To get the student ID from the route
-    private studentService: StudentService  // To fetch student data
+    private studentService: StudentService,  // To fetch student data
+    private datePipe: DatePipe 
   ) { }
 
   ngOnInit(): void {

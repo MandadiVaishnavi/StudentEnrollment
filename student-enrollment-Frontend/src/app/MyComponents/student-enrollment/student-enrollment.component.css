@@ -1,0 +1,41 @@
+.error-message {
+  color: red;
+  font-size: 12px;
+}
+/* Style for the form container */
+.form-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 0px; /* Adds spacing between form fields */
+  justify-content: center; /* Center fields vertically */
+  align-items: center; /* Center fields horizontally */
+  width: 100%;
+  max-width: 400px; /* Limit the width of the form */
+  margin: 0 auto; /* Center the form horizontally */
+}
+
+/* Styling for mat-form-field */
+mat-form-field {
+  display: block;
+  width: 100%; /* Ensures the form fields take up the full width */
+  margin-bottom: 0px; /* Adds space between fields */
+}
+
+/* For dialog content container */
+.mat-dialog-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; /* Vertically align content */
+}
+
+/* Centering dialog actions at the bottom */
+.mat-dialog-actions {
+  display: flex;
+  justify-content: center; /* Center the action buttons */
+  gap: 16px; /* Adds space between the buttons */
+}
+h2 {
+  text-align: center;
+}

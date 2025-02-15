@@ -1,18 +1,42 @@
-mat-dialog-title {
-  font-size: 20px;
+.dialog-title {
+  font-size: 1.6rem;
   font-weight: bold;
+  text-align: center;
+  color: #3f3f3f;
 }
 
-mat-dialog-content {
+.dialog-content {
+  text-align: center;
+  font-size: 1.1rem;
   padding: 20px;
-  font-size: 16px;
+  color: #444;
 }
 
-mat-dialog-actions {
+.dialog-actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 20px; /* Added more space between buttons */
+  padding: 15px;
 }
 
-button {
-  margin: 10px;
+.dialog-button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 12px 24px;
+  border-radius: 4px;
+  transition: background-color 0.3s, transform 0.3s ease;
+}
+
+  .dialog-button:hover {
+    transform: scale(1.05);
+  }
+
+mat-dialog-content p {
+  color: #555;
+  margin-bottom: 20px;
+}
+
+button.mat-flat-button {
+  min-width: 120px;
 }

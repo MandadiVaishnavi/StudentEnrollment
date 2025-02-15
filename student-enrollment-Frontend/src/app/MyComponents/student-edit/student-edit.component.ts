@@ -11,6 +11,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-student-edit',
@@ -22,6 +23,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MatSelectModule,
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -42,58 +44,23 @@ export class StudentEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.editStudentForm = new FormGroup({
-      FirstName: new FormControl(
-        { value: '', disabled: !this.isEditable },
-        Validators.required
-      ),
-      LastName: new FormControl(
-        { value: '', disabled: !this.isEditable },
-        Validators.required
-      ),
-      DateOfBirth: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      Gender: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      Nationality: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      MobilePhone: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      Email: new FormControl(
-        { value: '', disabled: !this.isEditable },
-        [Validators.required, Validators.email]
-      ),
-      Address: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      EnrollmentDate: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      Course: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      Year: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      FatherName: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      MotherName: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      FatherPhone: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      MotherPhone: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
-      ProfilePictureUrl: new FormControl(
-        { value: '', disabled: !this.isEditable }
-      ),
+    this.editStudentForm = this.fb.group({
+      FirstName: ['', Validators.required],
+      LastName: ['', Validators.required],
+      DateOfBirth: ['', Validators.required],
+      Gender: ['', Validators.required],
+      Nationality: ['', Validators.required],
+      MobilePhone: ['', [Validators.required, Validators.pattern(/^(\+?\d{1,4}[\s-])?(\(?\d{3}\)?[\s-])?[\d\s-]{7,12}$/)]],
+      Email: ['', [Validators.required, Validators.email]],
+      Address: ['', Validators.required],
+      EnrollmentDate: [new Date(), Validators.required],
+      Course: ['', Validators.required],
+      Year: [1, Validators.required],
+      FatherName: ['', Validators.required],
+      MotherName: ['', Validators.required],
+      FatherPhone: ['', [Validators.required, Validators.pattern(/^(\+?\d{1,4}[\s-])?(\(?\d{3}\)?[\s-])?[\d\s-]{7,12}$/)]],
+      MotherPhone: ['', [Validators.required, Validators.pattern(/^(\+?\d{1,4}[\s-])?(\(?\d{3}\)?[\s-])?[\d\s-]{7,12}$/)]],
+      ProfilePictureUrl: ['']
     });
 
     const studentId = this.route.snapshot.paramMap.get('id');
